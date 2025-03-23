@@ -14,17 +14,27 @@ let generateBtn = document.getElementById("generate-btn")
 //     firstPassword.textContent = "strong password"
 //     secondPassword.textContent = "weak password"
 // }
-function generatePassword() {
-     firstPassword.textContent = ""
-     secondPassword.textContent= ""
-    for (let i = 0; i < 15; i ++){
-    firstPassword.textContent += characters[Math.floor(Math.random() * characters.length)]
-    secondPassword.textContent += characters[Math.floor(Math.random() * characters.length)]
+function returnRandom() {
+        firstPassword.textContent += characters[Math.floor(Math.random() * characters.length)]
+        secondPassword.textContent += characters[Math.floor(Math.random() * characters.length)]
 
 }
 
+function generatePassword() {
+     let passLength = document.getElementById("pass-length").value
+     firstPassword.textContent = ""
+     secondPassword.textContent= ""
+    for (let i = 0; i < passLength; i ++){
+        if (passLength > 9 && passLength < 22){
+        returnRandom()
+         }
+         else {
+            passLength = 8
+            returnRandom()
+        }
+
     
+}    
 
 }
 generateBtn.addEventListener("click", generatePassword)
-
